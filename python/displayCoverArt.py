@@ -31,11 +31,11 @@ if len(sys.argv) > 2:
     config.read(filename)
 
     options = RGBMatrixOptions()
-    options.rows = int(config['DEFAULT']['rows'])
-    options.cols = int(config['DEFAULT']['columns'])
+    options.rows = 64
+    options.cols = 64
     options.chain_length = int(config['DEFAULT']['chain_length'])
     options.parallel = int(config['DEFAULT']['parallel'])
-    options.hardware_mapping = config['DEFAULT']['hardware_mapping']
+    options.hardware_mapping = 'adafruit-hat'
     options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
     options.brightness = int(config['DEFAULT']['brightness'])
     options.limit_refresh_rate_hz = int(config['DEFAULT']['refresh_rate'])
@@ -56,7 +56,8 @@ if len(sys.argv) > 2:
           if ( prevSong != currentSong ):
             response = requests.get(imageURL)
             image = Image.open(BytesIO(response.content))
-            image.thumbnail((matrix.width, matrix.height), Image.ANTIALIAS)
+            size = 64, 64
+            image.thumbnail(size)
             matrix.SetImage(image.convert('RGB'))
             prevSong = currentSong
 
