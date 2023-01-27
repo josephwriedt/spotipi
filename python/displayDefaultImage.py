@@ -23,7 +23,7 @@ options.hardware_mapping = 'regular'  # If you have an Adafruit HAT: 'adafruit-h
 matrix = RGBMatrix(options = options)
 
 # Make image fit our screen.
-image.thumbnail((matrix.width, matrix.height), Image.ANTIALIAS)
+image.thumbnail((matrix.width, matrix.height), Image.Resampling.LANCZOS)
 
 matrix.SetImage(image.convert('RGB'))
 
