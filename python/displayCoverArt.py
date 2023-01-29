@@ -10,9 +10,8 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions
 import sys,os
 import configparser
 
-if len(sys.argv) > 2:
+if len(sys.argv) > 1:
     username = sys.argv[1]
-    token_path = sys.argv[2]
 
     # Configuration file    
     dir = os.path.dirname(__file__)
@@ -50,7 +49,7 @@ if len(sys.argv) > 2:
     try:
       while True:
         try:
-          imageURL = getSongInfo(username, token_path)[1]
+          imageURL = getSongInfo(username)[1]
           currentSong = imageURL
 
           if ( prevSong != currentSong ):
