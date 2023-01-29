@@ -12,9 +12,9 @@ from PIL import Image
 def getSongInfo(username):
   scope = 'user-read-currently-playing'
   cache_handler = CacheFileHandler(username=username)
-  client_id = os.getenv("CLIENT_ID")
-  client_secret = os.getenv("CLIENT_SECRET")
-  redirect_uri = os.getenv("REDIRECT_URI")
+  client_id = os.getenv("SPOTIPY_CLIENT_ID")
+  client_secret = os.getenv("SPOTIPY_CLIENT_SECRET")
+  redirect_uri = os.getenv("SPOTIPY_REDIRECT_URI")
 
   auth_manager = SpotifyOAuth(client_id=client_id, client_secret=client_secret, 
       redirect_uri=redirect_uri, scope=scope, open_browser=False, 
