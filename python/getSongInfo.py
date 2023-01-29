@@ -9,7 +9,7 @@ import requests
 from io import BytesIO
 from PIL import Image
 
-def getSongInfo(username, token_path):
+def getSongInfo(username):
   scope = 'user-read-currently-playing'
   cache_handler = CacheFileHandler(username=username)
   client_id = os.getenv("CLIENT_ID")
